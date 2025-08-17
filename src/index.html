@@ -1,17 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TestSite - Advanced Landing Page</title>
   <link rel="stylesheet" href="styles.css">
-  <title>Vanilla JavaScript App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-  <main>
-    <h1>Vanilla JavaScript App</h1>
-  </main>
+  <nav class="navbar">
+    <div class="logo">TestSite</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <header class="hero" id="home">
+    <div class="hero-content">
+      <h1>Welcome to TestSite</h1>
+      <p>The most advanced demo site for modern web experiences.</p>
+      <a href="#features" class="cta-btn">Explore Features</a>
+    </div>
+    <div class="hero-animation">
+      <div class="circle"></div>
+      <div class="circle small"></div>
+      <div class="circle tiny"></div>
+    </div>
+  </header>
+  <section class="features" id="features">
+    <h2>Our Features</h2>
+    <div class="feature-cards">
+      <div class="card">
+        <h3>Fast & Responsive</h3>
+        <p>Lightning-fast load times and seamless experience on any device.</p>
+      </div>
+      <div class="card">
+        <h3>Modern Design</h3>
+        <p>Beautiful, clean, and intuitive UI with advanced CSS animations.</p>
+      </div>
+      <div class="card">
+        <h3>Easy Customization</h3>
+        <p>Flexible components and layouts for any project needs.</p>
+      </div>
+    </div>
+  </section>
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+  <footer>
+    <p>&copy; 2025 TestSite. All rights reserved.</p>
+  </footer>
+  <script>
+    // Simple scroll animation for navigation
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 60,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    // Hero animation
+    function animateCircles() {
+      document.querySelectorAll('.hero-animation .circle').forEach((circle, i) => {
+        circle.animate([
+          { transform: 'scale(1)' },
+          { transform: 'scale(1.1)' },
+          { transform: 'scale(1)' }
+        ], {
+          duration: 2000 + i * 500,
+          iterations: Infinity
+        });
+      });
+    }
+    animateCircles();
+  </script>
 </body>
-
 </html>
