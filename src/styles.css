@@ -429,6 +429,298 @@ footer {
   filter: grayscale(1) brightness(1.5);
 }
 
+.gallery {
+  padding: 4rem 2rem;
+  background: #fff;
+  text-align: center;
+}
+.gallery h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  font-weight: 900;
+  color: #b71c1c;
+}
+.gallery-images {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.gallery-images img {
+  width: 220px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(183,28,28,0.07);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+.gallery-images img.zoomed {
+  transform: scale(1.2);
+  z-index: 10;
+  box-shadow: 0 8px 32px rgba(183,28,28,0.15);
+}
+
+.media {
+  padding: 4rem 2rem;
+  background: #f5f7fa;
+  text-align: center;
+}
+.media h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  font-weight: 900;
+  color: #b71c1c;
+}
+.media-embeds {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.media-embeds iframe {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(183,28,28,0.07);
+}
+
+.newsletter {
+  padding: 4rem 2rem;
+  background: #fff;
+  text-align: center;
+}
+.newsletter h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  font-weight: 900;
+  color: #b71c1c;
+}
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.newsletter-form input {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid #b71c1c33;
+  font-size: 1rem;
+  font-family: inherit;
+}
+.newsletter-form button {
+  background: #b71c1c;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.newsletter-form button:hover {
+  background: #222;
+}
+
+.press {
+  padding: 4rem 2rem;
+  background: #f5f7fa;
+  text-align: center;
+}
+.press h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  font-weight: 900;
+  color: #b71c1c;
+}
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+.reviews blockquote {
+  font-size: 1.2rem;
+  color: #222;
+  background: #fff;
+  border-left: 4px solid #b71c1c;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(183,28,28,0.07);
+  max-width: 600px;
+}
+
+.merch {
+  padding: 4rem 2rem;
+  background: #fff;
+  text-align: center;
+}
+.merch h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  font-weight: 900;
+  color: #b71c1c;
+}
+.merch-items {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.merch-item {
+  background: #f5f7fa;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(183,28,28,0.07);
+  padding: 2rem 1rem;
+  max-width: 200px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.merch-item:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(183,28,28,0.15);
+}
+.merch-item img {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+.merch-item p {
+  font-size: 1rem;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+.merch-item button {
+  background: #b71c1c;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.merch-item button:hover {
+  background: #222;
+}
+
+.faq {
+  padding: 4rem 2rem;
+  background: #f5f7fa;
+  text-align: center;
+}
+.faq h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  font-weight: 900;
+  color: #b71c1c;
+}
+.faq-list {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+.faq-item {
+  margin-bottom: 1.5rem;
+}
+.faq-question {
+  background: #b71c1c;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: background 0.2s;
+}
+.faq-question[aria-expanded="true"] {
+  background: #222;
+}
+.faq-answer {
+  display: none;
+  background: #fff;
+  color: #222;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  box-shadow: 0 2px 8px rgba(183,28,28,0.07);
+}
+
+.map {
+  padding: 4rem 2rem;
+  background: #fff;
+  text-align: center;
+}
+.map h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  font-weight: 900;
+  color: #b71c1c;
+}
+.map iframe {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(183,28,28,0.07);
+  margin-top: 1rem;
+}
+
+.high-contrast {
+  background: #000 !important;
+  color: #fff !important;
+}
+.high-contrast .navbar,
+.high-contrast .about,
+.high-contrast .gigs,
+.high-contrast .members,
+.high-contrast .artists,
+.high-contrast .gallery,
+.high-contrast .media,
+.high-contrast .newsletter,
+.high-contrast .press,
+.high-contrast .merch,
+.high-contrast .faq,
+.high-contrast .map,
+.high-contrast .contact,
+.high-contrast footer {
+  background: #000 !important;
+  color: #fff !important;
+}
+.high-contrast h2,
+.high-contrast .logo,
+.high-contrast .nav-links a,
+.high-contrast .gig-date,
+.high-contrast .member-card h3,
+.high-contrast .artist-list li,
+.high-contrast .faq-question {
+  color: #ffd700 !important;
+}
+.high-contrast .faq-answer,
+.high-contrast .reviews blockquote,
+.high-contrast .merch-item,
+.high-contrast .gallery-images img,
+.high-contrast .media-embeds iframe,
+.high-contrast .map iframe {
+  background: #222 !important;
+  color: #fff !important;
+  border-color: #ffd700 !important;
+}
+
+.fade-in {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+  transition: opacity 0.8s, transform 0.8s;
+}
+section {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: opacity 0.8s, transform 0.8s;
+}
+
 @media (max-width: 900px) {
   .hero {
     flex-direction: column;
@@ -442,6 +734,12 @@ footer {
     gap: 0.5rem;
   }
   .member-cards {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .gallery-images,
+  .media-embeds,
+  .merch-items {
     flex-direction: column;
     gap: 2rem;
   }
