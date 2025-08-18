@@ -716,9 +716,13 @@ footer {
   transition: opacity 0.8s, transform 0.8s;
 }
 section {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.8s, transform 0.8s;
+}
+.js-animate section {
   opacity: 0;
   transform: translateY(40px) scale(0.98);
-  transition: opacity 0.8s, transform 0.8s;
 }
 
 @media (max-width: 900px) {
