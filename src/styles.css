@@ -324,6 +324,111 @@ footer {
   letter-spacing: 1px;
 }
 
+.dark-theme {
+  background: #181818;
+  color: #f5f7fa;
+}
+.dark-theme .navbar {
+  background: linear-gradient(90deg, #111 60%, #b71c1c 100%);
+  color: #f5f7fa;
+}
+.dark-theme .logo {
+  color: #f5f7fa;
+  text-shadow: 2px 2px 8px #b71c1c;
+}
+.dark-theme .nav-links a {
+  color: #f5f7fa;
+}
+.dark-theme .nav-links a:hover {
+  color: #b71c1c;
+}
+.dark-theme .hero {
+  background: linear-gradient(120deg, #b71c1c 0%, #111 100%);
+  color: #f5f7fa;
+}
+.dark-theme .about {
+  background: #222;
+  color: #f5f7fa;
+}
+.dark-theme .about h2 {
+  color: #b71c1c;
+}
+.dark-theme .about p {
+  color: #f5f7fa;
+}
+.dark-theme .gigs {
+  background: #222;
+  color: #f5f7fa;
+}
+.dark-theme .gigs h2 {
+  color: #b71c1c;
+}
+.dark-theme .gig-list li {
+  background: #181818;
+  color: #f5f7fa;
+}
+.dark-theme .gig-date {
+  color: #b71c1c;
+}
+.dark-theme .gig-location {
+  color: #f5f7fa;
+}
+.dark-theme .members {
+  background: #181818;
+  color: #f5f7fa;
+}
+.dark-theme .member-card {
+  background: #222;
+  color: #f5f7fa;
+}
+.dark-theme .member-card h3 {
+  color: #b71c1c;
+}
+.dark-theme .member-card p {
+  color: #f5f7fa;
+}
+.dark-theme .member-photo {
+  border-color: #b71c1c;
+}
+.dark-theme .artists {
+  background: #222;
+  color: #f5f7fa;
+}
+.dark-theme .artists h2 {
+  color: #b71c1c;
+}
+.dark-theme .artist-list li {
+  background: #181818;
+  color: #b71c1c;
+}
+.dark-theme .contact {
+  background: #222;
+  color: #f5f7fa;
+}
+.dark-theme .contact h2 {
+  color: #b71c1c;
+}
+.dark-theme .contact-form input,
+.dark-theme .contact-form textarea {
+  background: #181818;
+  color: #f5f7fa;
+  border: 1px solid #b71c1c;
+}
+.dark-theme .contact-form button {
+  background: #b71c1c;
+  color: #fff;
+}
+.dark-theme .contact-form button:hover {
+  background: #111;
+}
+.dark-theme footer {
+  background: linear-gradient(90deg, #111 60%, #b71c1c 100%);
+  color: #f5f7fa;
+}
+.dark-theme .social-icon {
+  filter: grayscale(1) brightness(1.5);
+}
+
 @media (max-width: 900px) {
   .hero {
     flex-direction: column;

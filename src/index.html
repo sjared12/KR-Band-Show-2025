@@ -18,6 +18,7 @@
       <li><a href="#artists">Artists</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
   </nav>
   <header class="hero" id="home">
     <div class="hero-content">
@@ -56,22 +57,22 @@
     <h2>Meet the Band</h2>
     <div class="member-cards">
       <div class="member-card">
-        <img src="https://via.placeholder.com/120x120?text=Member" alt="Band Member" class="member-photo">
+                <img src="https://source.unsplash.com/120x120/?person,portrait" alt="Band Member" class="member-photo">
         <h3>John Doe</h3>
         <p>Lead Vocals & Guitar</p>
       </div>
       <div class="member-card">
-        <img src="https://via.placeholder.com/120x120?text=Member" alt="Band Member" class="member-photo">
+                <img src="https://source.unsplash.com/120x120/?person,portrait" alt="Band Member" class="member-photo">
         <h3>Jane Smith</h3>
         <p>Bass Guitar</p>
       </div>
       <div class="member-card">
-        <img src="https://via.placeholder.com/120x120?text=Member" alt="Band Member" class="member-photo">
+                <img src="https://source.unsplash.com/120x120/?person,portrait" alt="Band Member" class="member-photo">
         <h3>Mike Brown</h3>
         <p>Drums</p>
       </div>
       <div class="member-card">
-        <img src="https://via.placeholder.com/120x120?text=Member" alt="Band Member" class="member-photo">
+                <img src="https://source.unsplash.com/120x120/?person,portrait" alt="Band Member" class="member-photo">
         <h3>Lisa White</h3>
         <p>Keyboards</p>
       </div>
@@ -148,6 +149,12 @@
       });
     }
     animateCircles();
+    // Theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-theme');
+      themeToggle.textContent = document.body.classList.contains('dark-theme') ? '☀️' : '🌙';
+    });
   </script>
 </body>
 </html>
