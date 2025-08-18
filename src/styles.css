@@ -9,19 +9,21 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #222;
+  background: linear-gradient(90deg, #222 60%, #b71c1c 100%);
   color: #fff;
   padding: 0 2rem;
   height: 60px;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 .logo {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 2rem;
+  font-weight: 900;
   letter-spacing: 2px;
+  font-family: 'Roboto', Arial, sans-serif;
+  color: #fff;
+  text-shadow: 2px 2px 8px #b71c1c;
 }
 .nav-links {
   list-style: none;
@@ -33,11 +35,12 @@ body {
 .nav-links a {
   color: #fff;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 700;
+  letter-spacing: 1px;
   transition: color 0.2s;
 }
 .nav-links a:hover {
-  color: #00bcd4;
+  color: #b71c1c;
 }
 
 .hero {
@@ -45,7 +48,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 4rem 2rem 2rem 2rem;
-  background: linear-gradient(120deg, #00bcd4 0%, #2196f3 100%);
+  background: linear-gradient(120deg, #b71c1c 0%, #222 100%);
   color: #fff;
   min-height: 60vh;
   position: relative;
@@ -55,27 +58,30 @@ body {
   max-width: 600px;
 }
 .hero-content h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   margin-bottom: 1rem;
-  font-weight: 700;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 12px #222;
 }
 .hero-content p {
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   margin-bottom: 2rem;
+  font-weight: 500;
 }
 .cta-btn {
   display: inline-block;
   background: #fff;
-  color: #2196f3;
+  color: #b71c1c;
   padding: 0.75rem 2rem;
   border-radius: 30px;
-  font-weight: 700;
+  font-weight: 900;
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(183,28,28,0.15);
   transition: background 0.2s, color 0.2s;
 }
 .cta-btn:hover {
-  background: #2196f3;
+  background: #b71c1c;
   color: #fff;
 }
 .hero-animation {
@@ -91,7 +97,7 @@ body {
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.10);
   top: 60px;
   left: 60px;
   z-index: 1;
@@ -101,7 +107,7 @@ body {
   height: 120px;
   top: 90px;
   left: 90px;
-  background: rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.18);
   z-index: 2;
 }
 .circle.tiny {
@@ -109,58 +115,70 @@ body {
   height: 60px;
   top: 120px;
   left: 120px;
-  background: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.25);
   z-index: 3;
 }
 
-.features {
+.about {
   padding: 4rem 2rem;
   background: #fff;
   text-align: center;
 }
-.features h2 {
+.about h2 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  font-weight: 700;
+  font-weight: 900;
+  color: #b71c1c;
 }
-.feature-cards {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
+.about p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+  line-height: 1.7;
 }
-.card {
+
+.artists {
+  padding: 4rem 2rem;
   background: #f5f7fa;
-  border-radius: 16px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
-  padding: 2rem;
-  max-width: 300px;
-  flex: 1 1 250px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
 }
-.card:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 8px 32px rgba(0,188,212,0.15);
+.artists h2 {
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  font-weight: 900;
+  color: #b71c1c;
 }
-.card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #2196f3;
+.artist-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
 }
-.card p {
+.artist-list li {
+  background: #fff;
+  color: #b71c1c;
+  font-weight: 700;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(183,28,28,0.07);
+  margin-bottom: 0.5rem;
   font-size: 1rem;
-  color: #333;
 }
 
 .contact {
   padding: 4rem 2rem;
-  background: #f5f7fa;
+  background: #fff;
   text-align: center;
 }
 .contact h2 {
   font-size: 2.2rem;
   margin-bottom: 2rem;
-  font-weight: 700;
+  font-weight: 900;
+  color: #b71c1c;
 }
 .contact-form {
   display: flex;
@@ -173,7 +191,7 @@ body {
 .contact-form textarea {
   padding: 0.75rem 1rem;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #b71c1c33;
   font-size: 1rem;
   font-family: inherit;
   resize: none;
@@ -182,27 +200,28 @@ body {
   min-height: 120px;
 }
 .contact-form button {
-  background: #00bcd4;
+  background: #b71c1c;
   color: #fff;
   border: none;
   padding: 0.75rem 2rem;
   border-radius: 30px;
   font-size: 1.1rem;
-  font-weight: 700;
+  font-weight: 900;
   cursor: pointer;
   transition: background 0.2s;
 }
 .contact-form button:hover {
-  background: #2196f3;
+  background: #222;
 }
 
 footer {
-  background: #222;
+  background: linear-gradient(90deg, #222 60%, #b71c1c 100%);
   color: #fff;
   text-align: center;
   padding: 1.5rem 0;
   font-size: 1rem;
   margin-top: 2rem;
+  letter-spacing: 1px;
 }
 
 @media (max-width: 900px) {
@@ -213,29 +232,8 @@ footer {
   .hero-animation {
     margin-top: 2rem;
   }
-  .feature-cards {
+  .artist-list {
     flex-direction: column;
-    gap: 2rem;
+    gap: 0.5rem;
   }
-}
-* {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-html, body {
-  margin: 0;
-  border: 0;
-  padding: 0;
-  background-color: #fff;
-}
-
-main {
-  margin: auto;
-  width: 50%;
-  padding: 20px;
-}
-
-main > h1 {
-  text-align: center;
-  font-size: 3.5em;
 }
