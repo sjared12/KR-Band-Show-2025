@@ -5,8 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kenton Ridge Marching Band Show</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="CLASSIC.jpg" type="image/jpeg">
+  <meta property="og:title" content="Kenton Ridge Marching Band Show">
+  <meta property="og:description" content="Celebrating 25 Years of Excellence at the Kenton Ridge Marching Band Invitational.">
+  <meta property="og:image" content="CLASSIC.jpg">
+  <meta property="og:type" content="website">
 </head>
 <body>
+  <video autoplay muted loop playsinline id="bg-video" tabindex="-1" aria-hidden="true" style="position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:-1;pointer-events:none;">
+    <source src="Untitled.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
   <header>
     <img src="CLASSIC.jpg" alt="Kenton Ridge Marching Band Logo" class="site-logo">
     <h1>Kenton Ridge Marching Band Show</h1>
@@ -14,17 +23,17 @@
   </header>
 
   <div id="countdown">
-    Countdown to Show: <span id="timer">Loading...</span>
+  Countdown to Show: <span id="timer" aria-live="polite">Loading...</span>
   </div>
 
   <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="schedule.html">Schedule</a>
-    <a href="bands.html">Bands</a>
-    <a href="tickets.html">Tickets</a>
-    <a href="program.html">Digital Program</a>
-    <a href="contact.html">Contact</a>
+  <a href="index.html" aria-current="page">Home</a>
+  <a href="about.html">About</a>
+  <a href="schedule.html">Schedule</a>
+  <a href="bands.html">Bands</a>
+  <a href="tickets.html">Tickets</a>
+  <a href="program.html">Digital Program</a>
+  <a href="contact.html">Contact</a>
   </nav>
 
   <section>
