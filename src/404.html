@@ -12,13 +12,19 @@
   <meta property="og:type" content="website">
 </head>
 <body>
-  <video autoplay muted loop playsinline id="bg-video" tabindex="-1" aria-hidden="true" style="position:fixed;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:-1;pointer-events:none;">
+  <video autoplay muted loop playsinline id="bg-video" tabindex="-1" aria-hidden="true">
     <source src="Untitled.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+  <div class="bg-overlay" aria-hidden="true"></div>
   <header>
-    <h1>404 - Page Not Found</h1>
-    <p>Sorry, the page you are looking for does not exist.</p>
+    <div class="header-flex">
+      <img src="CLASSIC.jpg" alt="Kenton Ridge Marching Band Logo" class="site-logo">
+      <div class="header-title-group">
+        <h1>404 - Page Not Found</h1>
+        <p>Sorry, the page you are looking for does not exist.</p>
+      </div>
+    </div>
   </header>
   <nav>
     <a href="index.html">Home</a>

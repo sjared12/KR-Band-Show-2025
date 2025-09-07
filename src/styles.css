@@ -44,7 +44,7 @@ header {
   width: 100vw;
   height: 100vh;
   background: rgba(60, 60, 60, 0.45);
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -88,6 +88,59 @@ section {
   padding: 40px 20px;
   max-width: 1000px;
   margin: auto;
+}
+
+.program-card {
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  border-radius: 18px;
+  padding: 2.5em 2em 2em 2em;
+  margin: 2em auto 2em auto;
+  width: 75vw;
+  max-width: 1100px;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.program-card h2 {
+  margin-top: 0;
+  color: var(--main-bg);
+}
+
+.program-card .button {
+  background: var(--main-bg);
+  color: var(--accent-color);
+  border: none;
+  border-radius: 6px;
+  padding: 0.7em 1.5em;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 1.2em;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.program-card .button:hover {
+  background: #6a3b22;
+}
+
+.program-card iframe {
+  width: 100%;
+  height: 60vh;
+  min-height: 350px;
+  border: 1.5px solid #bbb;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+@media (max-width: 900px) {
+  .program-card {
+    width: 98vw;
+    padding: 1.2em 0.5em 1.5em 0.5em;
+  }
 }
 
 section h2 {
@@ -179,7 +232,7 @@ footer {
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: -1;
+  z-index: -2;
   pointer-events: none;
 }
 
