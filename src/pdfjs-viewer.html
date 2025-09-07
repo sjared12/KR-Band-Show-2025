@@ -33,7 +33,7 @@
   </style>
 </head>
 <body>
-  <div id="pdf-scroll-container" style="width:100%;max-width:900px;margin:auto;overflow-y:auto;height:100vh;"></div>
+  <div id="pdf-scroll-container" style="width:100%;margin:auto;overflow-y:auto;height:100vh;background:#fff;border-radius:10px;box-shadow:0 2px 12px rgba(0,0,0,0.07);"></div>
   <div id="pdf-error">Failed to load the event program PDF.<br>Please check your internet connection or try again later.<br><br><a href="event-program.pdf" download style="color:#a00;text-decoration:underline;">Download PDF</a></div>
   <script src="Modules/pdf.min.js" id="pdfjs-script"></script>
   <script>
@@ -41,21 +41,50 @@
       document.getElementById('pdf-error').style.display = 'block';
     }
 
-    function renderAllPages(pdfDoc) {
+    function renderPageLazy(pdfDoc, num, container, scale = 1.5) {
+      pdfDoc.getPage(num).then(function(page) {
+        const viewport = page.getViewport({ scale });
+        const canvas = document.createElement('canvas');
+        canvas.width = viewport.width;
+        canvas.height = viewport.height;
+        canvas.style.display = 'block';
+        canvas.style.margin = '20px auto';
+        canvas.style.width = '100%';
+        canvas.style.maxWidth = '100%';
+        const ctx = canvas.getContext('2d');
+        page.render({canvasContext: ctx, viewport: viewport});
+        // Replace placeholder with canvas
+        const placeholder = document.getElementById('pdf-page-placeholder-' + num);
+        if (placeholder) {
+          placeholder.innerHTML = '';
+          placeholder.appendChild(canvas);
+        }
+      });
+    }
+
+    function renderAllPagesLazy(pdfDoc) {
       const container = document.getElementById('pdf-scroll-container');
       container.innerHTML = '';
-      for (let num = 1; num <= pdfDoc.numPages; num++) {
-        pdfDoc.getPage(num).then(function(page) {
-          const viewport = page.getViewport({ scale: 1.5 });
-          const canvas = document.createElement('canvas');
-          canvas.width = viewport.width;
-          canvas.height = viewport.height;
-          canvas.style.display = 'block';
-          canvas.style.margin = '20px auto';
-          container.appendChild(canvas);
-          const ctx = canvas.getContext('2d');
-          page.render({canvasContext: ctx, viewport: viewport});
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const num = parseInt(entry.target.getAttribute('data-page'));
+            if (!entry.target.hasAttribute('data-rendered')) {
+              renderPageLazy(pdfDoc, num, container);
+              entry.target.setAttribute('data-rendered', '1');
+            }
+          }
         });
+      }, { root: container, rootMargin: '200px', threshold: 0.01 });
+      for (let num = 1; num <= pdfDoc.numPages; num++) {
+        const placeholder = document.createElement('div');
+        placeholder.id = 'pdf-page-placeholder-' + num;
+        placeholder.setAttribute('data-page', num);
+        placeholder.style.minHeight = '400px';
+        placeholder.style.width = '100%';
+        placeholder.style.maxWidth = '100%';
+        container.appendChild(placeholder);
+        observer.observe(placeholder);
       }
     }
 
@@ -68,7 +97,7 @@
       const url = 'event-program.pdf';
       pdfjsLib.GlobalWorkerOptions.workerSrc = 'Modules/pdf.work.min.js';
       pdfjsLib.getDocument(url).promise.then(function(pdfDoc) {
-        renderAllPages(pdfDoc);
+        renderAllPagesLazy(pdfDoc);
       }).catch(function(err) {
         showError();
       });
