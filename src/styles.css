@@ -6,27 +6,37 @@
   --focus-outline: 2px solid #FFD700;
 }
 
+
 body {
   margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #fdfaf4;
   color: var(--text-dark);
 }
 
+
 header {
   background-color: var(--main-bg);
   color: var(--accent-color);
   text-align: center;
-  padding: 40px 20px;
+  padding: 16px 10px 10px 10px;
+  min-height: unset;
 }
+
 
 header h1 {
   margin: 0;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
+  line-height: 1.2;
 }
 
+
 header p {
-  font-size: 1.2rem;
+  font-size: 1rem;
+  margin: 0.2em 0 0 0;
 }
 
 nav {
@@ -63,6 +73,7 @@ section h2 {
   color: var(--main-bg);
 }
 
+
 img, video {
   max-width: 100%;
   height: auto;
@@ -70,12 +81,27 @@ img, video {
   border-radius: 8px;
 }
 
+.site-logo {
+  max-width: 120px;
+  height: auto;
+  margin: 0 auto 8px auto;
+  display: block;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+
 footer {
   background-color: #2b1a10;
   color: var(--accent-color);
   text-align: center;
-  padding: 20px;
-  margin-top: 40px;
+  padding: 16px 10px;
+  margin-top: auto;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
 }
 
 #countdown {
@@ -88,24 +114,42 @@ footer {
 
 @media (max-width: 900px) {
   section {
-    padding: 30px 10px;
+    padding: 20px 5px;
     max-width: 98vw;
   }
   header {
-    padding: 30px 10px;
+    padding: 10px 5px;
+  }
+  .site-logo {
+    max-width: 80px;
   }
 }
 
 @media (max-width: 600px) {
   header h1 {
-    font-size: 2rem;
+    font-size: 1.1rem;
   }
   nav {
     flex-direction: column;
   }
   section {
-    padding: 20px 5px;
+    padding: 10px 2px;
   }
+  .site-logo {
+    max-width: 60px;
+  }
+}
+/* Center and cover the video background */
+#bg-video {
+  object-fit: cover;
+  object-position: center center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* High contrast for accessibility */
