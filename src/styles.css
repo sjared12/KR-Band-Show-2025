@@ -1,3 +1,4 @@
+
 :root {
   --main-bg: #4B2E1D;
   --accent-color: #FFD700;
@@ -6,13 +7,25 @@
   --focus-outline: 2px solid #FFD700;
 }
 
+.header-flex {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  justify-content: flex-start;
+}
+
+.header-title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 
 body {
   margin: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #fdfaf4;
   color: var(--text-dark);
 }
@@ -21,15 +34,23 @@ body {
 header {
   background-color: var(--main-bg);
   color: var(--accent-color);
-  text-align: center;
-  padding: 16px 10px 10px 10px;
+  padding: 8px 5px;
   min-height: unset;
+}
+.bg-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(60, 60, 60, 0.45);
+  z-index: 0;
+  pointer-events: none;
 }
 
 
 header h1 {
   margin: 0;
-  font-size: 1.5rem;
   line-height: 1.2;
 }
 
@@ -82,12 +103,14 @@ img, video {
 }
 
 .site-logo {
-  max-width: 120px;
-  height: auto;
-  margin: 0 auto 8px auto;
+  max-width: 60px;
+  min-width: 40px;
+  height: 60px;
+  margin: 0 0 0 0;
   display: block;
   border-radius: 8px;
   object-fit: contain;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 
 
@@ -118,16 +141,20 @@ footer {
     max-width: 98vw;
   }
   header {
-    padding: 10px 5px;
+    padding: 8px 5px;
   }
   .site-logo {
-    max-width: 80px;
+    max-width: 40px;
+    height: 40px;
+  }
+  header h1 {
+    font-size: 1.05rem;
   }
 }
 
 @media (max-width: 600px) {
   header h1 {
-    font-size: 1.1rem;
+    font-size: 0.9rem;
   }
   nav {
     flex-direction: column;
@@ -135,8 +162,12 @@ footer {
   section {
     padding: 10px 2px;
   }
+  .header-flex {
+    gap: 6px;
+  }
   .site-logo {
-    max-width: 60px;
+    max-width: 28px;
+    height: 28px;
   }
 }
 /* Center and cover the video background */
