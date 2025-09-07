@@ -3,188 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kenton Ridge Marching Band Show - 25th Anniversary</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-    }
-
-    header {
-      background-color: #004d00;
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-
-    header p {
-      font-size: 1.2rem;
-    }
-
-    #countdown {
-      background-color: #006600;
-      padding: 20px;
-      color: white;
-      font-size: 1.5rem;
-      text-align: center;
-    }
-
-    nav {
-      background-color: #003300;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: white;
-      padding: 15px 20px;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    nav a:hover {
-      background-color: #005500;
-    }
-
-    section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    section h2 {
-      color: #004d00;
-    }
-
-    footer {
-      background-color: #002200;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .schedule, .bands {
-      background-color: #ffffff;
-      padding: 20px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-
-    @media (max-width: 600px) {
-      nav {
-        flex-direction: column;
-      }
-    }
-  </style>
+  <title>Kenton Ridge Marching Band Show</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <header>
-    <h1>Kenton Ridge High School Marching Band Show</h1>
-    <p>🎉 Celebrating 25 Years of Music, Tradition & Excellence 🎉</p>
+    <h1>Kenton Ridge Marching Band Show</h1>
+    <p>🎉 Celebrating 25 Years of Excellence 🎉</p>
   </header>
 
-  <!-- Countdown Timer Section -->
   <div id="countdown">
     Countdown to Show: <span id="timer">Loading...</span>
   </div>
 
   <nav>
-    <a href="#about">About</a>
-    <a href="#schedule">Schedule</a>
-    <a href="#bands">Participating Bands</a>
-    <a href="#tickets">Tickets</a>
-    <a href="#contact">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="schedule.html">Schedule</a>
+    <a href="bands.html">Bands</a>
+    <a href="tickets.html">Tickets</a>
+    <a href="contact.html">Contact</a>
   </nav>
 
-  <section id="about">
-    <h2>About the Show</h2>
-    <p>Join us for the 25th Anniversary of the Kenton Ridge High School Marching Band Invitational! For a quarter of a century, this event has brought together incredible talent from high schools across the region. It's a celebration of music, precision, teamwork, and school spirit!</p>
-    <p>This year promises to be our biggest and best yet, with special performances, alumni recognition, food trucks, and more.</p>
-  </section>
-
-  <section id="schedule" class="schedule">
-    <h2>Event Schedule - October 25, 2025</h2>
-    <ul>
-      <li><strong>3:00 PM</strong> – Gates Open</li>
-      <li><strong>4:00 PM</strong> – Opening Ceremony</li>
-      <li><strong>4:15 PM</strong> – First Band Performance</li>
-      <li><strong>8:30 PM</strong> – Kenton Ridge Exhibition Performance</li>
-      <li><strong>9:00 PM</strong> – Awards Ceremony</li>
-    </ul>
-  </section>
-
-  <section id="bands" class="bands">
-    <h2>Participating Bands</h2>
-    <ul>
-      <li>Springfield North High School</li>
-      <li>Urbana High School</li>
-      <li>Mechanicsburg Marching Indians</li>
-      <li>Greenon Knights</li>
-      <li>West Liberty-Salem Tigers</li>
-      <li>And many more!</li>
-    </ul>
-  </section>
-
-  <section id="tickets">
-    <h2>Tickets</h2>
-    <p>Tickets are available at the gate or online through our ticketing partner.</p>
-    <ul>
-      <li>Adults: $10</li>
-      <li>Students/Seniors: $5</li>
-      <li>Children under 5: Free</li>
-    </ul>
-    <p><a href="#">Buy Tickets Online</a> (Coming Soon)</p>
-  </section>
-
-  <section id="contact">
-    <h2>Contact & Location</h2>
-    <p><strong>Location:</strong> Kenton Ridge High School Stadium<br>
-    4444 Middle Urbana Rd, Springfield, OH</p>
-    <p><strong>Contact:</strong> <a href="mailto:krband@kentonridge.org">krband@kentonridge.org</a></p>
-    <p>Follow us on social media: 
-      <a href="#">Facebook</a> | 
-      <a href="#">Instagram</a>
-    </p>
+  <section>
+    <h2>Welcome!</h2>
+    <p>Join us on October 25th, 2025, at 7:00 PM EST for an unforgettable evening of music and celebration. The Kenton Ridge Marching Band Invitational is turning 25, and we’re pulling out all the stops.</p>
   </section>
 
   <footer>
-    <p>&copy; 2025 Kenton Ridge High School Marching Band | 25th Anniversary Invitational</p>
+    &copy; 2025 Kenton Ridge High School Marching Band
   </footer>
 
-  <!-- Countdown Timer Script -->
-  <script>
-    function updateCountdown() {
-      const eventDate = new Date("October 25, 2025 19:00:00 EST");
-      const now = new Date();
-      const diff = eventDate - now;
-
-      if (diff <= 0) {
-        document.getElementById("timer").innerHTML = "🎺 The show has begun!";
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-      document.getElementById("timer").innerHTML =
-        `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown(); // Initial call
-  </script>
-
+  <script src="countdown.js"></script>
 </body>
 </html>
