@@ -1,0 +1,32 @@
+{
+  "routes": [
+    {
+      "route": "/about",
+      "rewrite": "/about.html"
+    },
+    {
+      "route": "/schedule",
+      "rewrite": "/schedule.html"
+    },
+    {
+      "route": "/bands",
+      "rewrite": "/bands.html"
+    },
+    {
+      "route": "/tickets",
+      "rewrite": "/tickets.html"
+    },
+    {
+      "route": "/program",
+      "rewrite": "/program.html"
+    },
+    {
+      "route": "/contact",
+      "rewrite": "/contact.html"
+    },
+    {
+      "route": "/concessions",
+      "rewrite": "/concessions.html"
+    }
+  ]
+}
