@@ -27,6 +27,8 @@ body {
   min-height: 100vh;
   background-color: #fdfaf4;
   color: var(--text-dark);
+  display: flex;
+  flex-direction: column;
 }
 
 
@@ -42,7 +44,7 @@ header {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(60, 60, 60, 0.45);
+  background: rgba(30, 20, 10, 0.75);
   z-index: -1;
   pointer-events: none;
 }
@@ -86,7 +88,11 @@ nav a:hover {
 section {
   padding: 40px 20px;
   max-width: 1000px;
-  margin: auto;
+  margin: 2em auto 2em auto;
+  background: rgba(255,255,255,0.96);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  backdrop-filter: blur(2px);
 }
 
 .program-card {
