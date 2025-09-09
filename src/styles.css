@@ -96,11 +96,11 @@ section {
 }
 
 .program-card {
-  /* Removed background, border-radius, and box-shadow to avoid double card effect */
-  padding: 2.5em 2em 2em 2em;
-  margin: 0 auto;
+  /* Simple container for program content */
+  padding: 0.5em 0 1.5em 0;
+  margin: 0;
   width: 100%;
-  max-width: 900px;
+  max-width: none;
   min-width: 0;
   display: block;
 }
