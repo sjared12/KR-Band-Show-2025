@@ -1,3 +1,47 @@
+/* Concession Stand Menu Styles */
+.concessions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 22px;
+  max-width: 700px;
+  margin: 2em auto 1.5em auto;
+  padding: 0;
+}
+.concession-card {
+  background: linear-gradient(120deg, #fffbe7 70%, #ffe9a7 100%);
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 1.1em 1.2em;
+  font-size: 1.13em;
+  font-weight: 500;
+  color: #4B2E1D;
+  transition: transform 0.13s, box-shadow 0.13s;
+  border: 1.5px solid #FFD70033;
+}
+.concession-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.13);
+  background: linear-gradient(120deg, #ffe9a7 60%, #fffbe7 100%);
+}
+.concession-emoji {
+  font-size: 2.1em;
+  margin-right: 0.2em;
+  flex-shrink: 0;
+}
+.concession-price {
+  color: #8d6a00;
+  font-weight: 700;
+  font-size: 1.08em;
+}
+.concession-note {
+  font-size: 0.98em;
+  color: #555;
+  text-align: center;
+  margin-top: 1.2em;
+}
 :root {
   --main-bg: #4B2E1D;
   --accent-color: #FFD700;
