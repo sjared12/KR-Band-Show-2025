@@ -47,21 +47,50 @@
         2250 Montego Drive, Springfield, OH</p>
         <p><span class="contact-icon">✉️</span> <strong>Email:</strong> <a href="mailto:help@krhscougarband.org">help@krhscougarband.org</a></p>
       </div>
-      <form class="contact-form" action="mailto:krband@kentonridge.org" method="POST" enctype="text/plain">
+      <form class="contact-form" id="contactForm" autocomplete="on">
         <div class="form-group">
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" required>
+          <input type="text" id="name" name="name" required autocomplete="name">
         </div>
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" id="email" name="email" required>
+          <input type="email" id="email" name="email" required autocomplete="email">
         </div>
         <div class="form-group">
           <label for="message">Message</label>
-          <textarea id="message" name="message" rows="4" required></textarea>
+          <textarea id="message" name="message" rows="4" required autocomplete="on"></textarea>
         </div>
         <button type="submit" class="button contact-btn">Send Message</button>
+        <div id="formStatus" style="margin-top:0.7em;font-size:1em;"></div>
       </form>
+      <script>
+      document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const status = document.getElementById('formStatus');
+        status.textContent = 'Sending...';
+        const form = e.target;
+        const data = {
+          name: form.name.value,
+          email: form.email.value,
+          message: form.message.value
+        };
+        try {
+          const res = await fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          if (res.ok) {
+            status.textContent = 'Thank you! Your message has been sent.';
+            form.reset();
+          } else {
+            status.textContent = 'Sorry, there was a problem sending your message.';
+          }
+        } catch {
+          status.textContent = 'Sorry, there was a problem sending your message.';
+        }
+      });
+      </script>
       <div class="social-links">
         <span>Follow us:</span>
         <a href="#" class="social-btn" aria-label="Facebook"><span>📘</span></a>
