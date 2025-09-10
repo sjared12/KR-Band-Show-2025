@@ -1,4 +1,3 @@
-
 :root {
   --main-bg: #4B2E1D;
   --accent-color: #FFD700;
@@ -89,6 +88,16 @@ section {
   padding: 40px 20px;
   max-width: 2000px;
   margin: 2em auto 2em auto;
+  background: rgba(255,255,255,0.96);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  backdrop-filter: blur(2px);
+}
+
+.tickets-section {
+  max-width: 1300px;
+  margin: 2em auto 2em auto;
+  padding: 40px 20px;
   background: rgba(255,255,255,0.96);
   border-radius: 18px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.13);
