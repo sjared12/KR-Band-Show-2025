@@ -337,13 +337,13 @@ footer {
 
 .program-download-btn {
   display: inline-block;
-  background: linear-gradient(90deg, #FFD700 0%, #FFB300 100%);
-  color: #2d2d2d !important;
+  background: linear-gradient(90deg, #fffbe7 0%, #ffe9a7 100%);
+  color: #4B2E1D !important;
   font-size: 1.18em;
   font-weight: 700;
   padding: 0.85em 2.2em;
   border-radius: 8px;
-  border: none;
+  border: 2px solid #FFD700;
   box-shadow: 0 2px 12px rgba(0,0,0,0.10);
   text-decoration: none;
   letter-spacing: 0.02em;
@@ -351,8 +351,8 @@ footer {
   margin-bottom: 1.5em;
 }
 .program-download-btn:hover, .program-download-btn:focus {
-  background: linear-gradient(90deg, #FFB300 0%, #FFD700 100%);
-  color: #1a1208 !important;
+  background: linear-gradient(90deg, #FFD700 0%, #fffbe7 100%);
+  color: #2d2d2d !important;
   box-shadow: 0 4px 18px rgba(0,0,0,0.13);
   outline: 2px solid #4B2E1D;
 }
