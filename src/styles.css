@@ -32,7 +32,7 @@
   flex-shrink: 0;
 }
 .concession-price {
-  color: #8d6a00;
+  color: hsl(45, 100%, 28%);
   font-weight: 700;
   font-size: 1.08em;
 }
@@ -173,13 +173,14 @@ section {
 
 .program-card h2 {
   margin-top: 0;
+  margin-bottom: 0.4em;
   color: var(--main-bg);
 }
 
 .program-desc {
-  font-size: 1.15em;
+  font-size: 1.12em;
   color: #3a1f13;
-  margin-bottom: 1.2em;
+  margin-bottom: 0.7em;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -200,7 +201,7 @@ section {
 }
 .program-card .button:hover {
   background: #6a3b22;
-  color: #2d2d2d !important;
+  color: hsl(45, 100%, 28%) !important;
 }
 
 .program-card iframe {
@@ -383,16 +384,16 @@ footer {
   display: inline-block;
   background: linear-gradient(90deg, #fffbe7 0%, #ffe9a7 100%);
   color: #4B2E1D !important;
-  font-size: 1.18em;
+  font-size: 1.15em;
   font-weight: 700;
-  padding: 0.85em 2.2em;
+  padding: 0.7em 1.7em;
   border-radius: 8px;
   border: 2px solid #FFD700;
   box-shadow: 0 2px 12px rgba(0,0,0,0.10);
   text-decoration: none;
   letter-spacing: 0.02em;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
 }
 .program-download-btn:hover, .program-download-btn:focus {
   background: linear-gradient(90deg, #FFD700 0%, #fffbe7 100%);
