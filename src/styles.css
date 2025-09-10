@@ -32,7 +32,7 @@
   flex-shrink: 0;
 }
 .concession-price {
-  color: hsl(45, 100%, 28%);
+  color: #8d6a00;
   font-weight: 700;
   font-size: 1.08em;
 }
@@ -188,7 +188,7 @@ section {
 
 .program-card .button {
   background: var(--main-bg);
-  color: var(--accent-color);
+  color: hsl(45, 100%, 28%) !important;
   border: none;
   border-radius: 6px;
   padding: 0.7em 1.5em;
@@ -201,7 +201,7 @@ section {
 }
 .program-card .button:hover {
   background: #6a3b22;
-  color: hsl(45, 100%, 28%) !important;
+  color: #2d2d2d !important;
 }
 
 .program-card iframe {
