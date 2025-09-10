@@ -1,3 +1,131 @@
+/* Modern Contact Page Styles */
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 60vh;
+  padding: 0;
+  background: none;
+}
+.contact-card {
+  background: rgba(255,255,255,0.98);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  padding: 2.5em 2.2em 2em 2.2em;
+  max-width: 440px;
+  width: 100%;
+  margin: 2.5em 0 2em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact-card h2 {
+  color: var(--main-bg);
+  margin-top: 0;
+  margin-bottom: 1.1em;
+  font-size: 2em;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+.contact-icon {
+  font-size: 1.2em;
+  vertical-align: middle;
+  margin-right: 0.18em;
+}
+.contact-info {
+  width: 100%;
+  margin-bottom: 1.5em;
+  color: #3a1f13;
+  font-size: 1.08em;
+}
+.contact-info a {
+  color: #4B2E1D;
+  text-decoration: underline;
+}
+.contact-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-bottom: 1.5em;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+}
+.contact-form label {
+  font-weight: 600;
+  color: #4B2E1D;
+  margin-bottom: 0.1em;
+}
+.contact-form input,
+.contact-form textarea {
+  border: 1.5px solid #FFD70099;
+  border-radius: 7px;
+  padding: 0.7em 1em;
+  font-size: 1em;
+  font-family: inherit;
+  background: #fffbe7;
+  color: #2d2d2d;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 2px solid #FFD700;
+  outline: none;
+  box-shadow: 0 2px 8px rgba(255,215,0,0.08);
+}
+.contact-btn {
+  background: linear-gradient(90deg, #FFD700 0%, #FFB300 100%);
+  color: #4B2E1D !important;
+  font-size: 1.13em;
+  font-weight: 700;
+  padding: 0.7em 2em;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  margin-top: 0.5em;
+  margin-bottom: 0.2em;
+  cursor: pointer;
+}
+.contact-btn:hover, .contact-btn:focus {
+  background: linear-gradient(90deg, #FFB300 0%, #FFD700 100%);
+  color: #2d2d2d !important;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+  outline: 2px solid #4B2E1D;
+}
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  margin-top: 0.7em;
+  font-size: 1.08em;
+}
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1em;
+  height: 2.1em;
+  background: #fffbe7;
+  border-radius: 50%;
+  border: 1.5px solid #FFD70099;
+  font-size: 1.25em;
+  color: #4B2E1D;
+  transition: background 0.2s, border 0.2s;
+  text-decoration: none;
+}
+.social-btn:hover, .social-btn:focus {
+  background: #FFD700;
+  border: 2px solid #4B2E1D;
+  color: #2d2d2d;
+}
 /* Concession Stand Menu Styles */
 .concessions-grid {
   display: grid;
