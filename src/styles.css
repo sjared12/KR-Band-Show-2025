@@ -120,9 +120,25 @@ section {
   display: block;
 }
 
+.program-card-center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .program-card h2 {
   margin-top: 0;
   color: var(--main-bg);
+}
+
+.program-desc {
+  font-size: 1.15em;
+  color: #3a1f13;
+  margin-bottom: 1.2em;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .program-card .button {
@@ -140,6 +156,7 @@ section {
 }
 .program-card .button:hover {
   background: #6a3b22;
+  color: #2d2d2d !important;
 }
 
 .program-card iframe {
