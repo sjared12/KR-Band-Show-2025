@@ -334,10 +334,11 @@ footer {
   backdrop-filter: blur(2px);
 }
 
+
 .program-download-btn {
   display: inline-block;
   background: linear-gradient(90deg, #FFD700 0%, #FFB300 100%);
-  color: #4B2E1D !important;
+  color: #2d2d2d !important;
   font-size: 1.18em;
   font-weight: 700;
   padding: 0.85em 2.2em;
@@ -349,8 +350,9 @@ footer {
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
   margin-bottom: 1.5em;
 }
-.program-download-btn:hover {
+.program-download-btn:hover, .program-download-btn:focus {
   background: linear-gradient(90deg, #FFB300 0%, #FFD700 100%);
-  color: #2d2d2d !important;
+  color: #1a1208 !important;
   box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+  outline: 2px solid #4B2E1D;
 }
