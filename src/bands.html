@@ -27,15 +27,22 @@
     </div>
   </header>
 
-  <nav>
-  <a href="/">Home</a>
-  <a href="/about">About</a>
-  <a href="/schedule">Schedule</a>
-  <a href="/bands" aria-current="page">Bands</a>
-  <a href="/tickets">Tickets</a>
-  <a href="/program">Digital Program</a>
-  <a href="/concessions">Concessions</a>
-  <a href="/contact">Contact</a>
+  <nav class="main-nav">
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <div class="nav-links" id="nav-links">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/schedule">Schedule</a>
+      <a href="/bands" aria-current="page">Bands</a>
+      <a href="/tickets">Tickets</a>
+      <a href="/program">Digital Program</a>
+      <a href="/concessions">Concessions</a>
+      <a href="/contact">Contact</a>
+    </div>
   </nav>
 
   <section>
@@ -55,4 +62,16 @@
   </footer>
 </body>
 <script src="hide-concessions-link.js"></script>
+<script>
+// Hamburger menu toggle for mobile nav
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.getElementById('nav-links');
+if (navToggle && navLinks) {
+  navToggle.addEventListener('click', function() {
+    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', !expanded);
+    navLinks.classList.toggle('open');
+  });
+}
+</script>
 </html>
