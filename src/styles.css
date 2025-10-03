@@ -1,3 +1,7 @@
+/* Centered text utility */
+.center-text {
+  text-align: center;
+}
 @media (max-width: 700px) {
   body {
   /* Sparkling golden sand background for mobile (local file for offline use) */
