@@ -58,9 +58,9 @@
   right: 0.7em;
   background: none;
   border: none;
-  font-size: 2em;
-  color: #b8860b;
-  cursor: pointer;
+    position: absolute;
+    left: 50%;
+    top: 0;
   line-height: 1;
 }
 /* Temporary message box for program page */
