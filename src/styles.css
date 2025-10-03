@@ -1,3 +1,49 @@
+/* Interactive band list */
+.band-list li {
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, box-shadow 0.15s;
+  border-radius: 8px;
+  padding: 0.5em 1em;
+  margin: 0.3em 0;
+}
+.band-list li:hover, .band-list li:focus {
+  background: #fffbe6;
+  color: #b8860b;
+  outline: 2px solid #b8860b;
+}
+
+/* Band info card */
+.band-info-card {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fffbe6;
+  border: 2px solid #b8860b;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px rgba(184,134,11,0.13);
+  padding: 2em 1.5em 1.5em 1.5em;
+  z-index: 9999;
+  min-width: 260px;
+  max-width: 90vw;
+  text-align: center;
+}
+.band-info-card h3 {
+  margin-top: 0;
+  color: #b8860b;
+}
+.close-band-card {
+  position: absolute;
+  top: 0.5em;
+  right: 0.7em;
+  background: none;
+  border: none;
+  font-size: 2em;
+  color: #b8860b;
+  cursor: pointer;
+  line-height: 1;
+}
 /* Temporary message box for program page */
 .temp-message {
   background: #fffbe6;

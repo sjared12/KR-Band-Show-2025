@@ -47,18 +47,23 @@
 
   <section>
     <h2>Bands — October 25, 2025</h2>
-    <ul>
-      <li>Batavia High School</li>
-      <li>Jonathan Alder High School</li>
-      <li>Little Miami High School</li>
-      <li>Northeastern High School</li>
-      <li>Olentangy Orange High School</li>
-      <li>Shawnee High School</li>
-      <li>Southeastern High School</li>
-      <li>Tri-County North High School</li>
-      <li>Xenia High School</li>
-      <li>Kenton Ridge High School</li>
+    <ul class="band-list">
+      <li data-band="batavia">Batavia High School</li>
+      <li data-band="jonathan-alder">Jonathan Alder High School</li>
+      <li data-band="little-miami">Little Miami High School</li>
+      <li data-band="northeastern">Northeastern High School</li>
+      <li data-band="olentangy-orange">Olentangy Orange High School</li>
+      <li data-band="shawnee">Shawnee High School</li>
+      <li data-band="southeastern">Southeastern High School</li>
+      <li data-band="tri-county-north">Tri-County North High School</li>
+      <li data-band="xenia">Xenia High School</li>
+      <li data-band="kenton-ridge">Kenton Ridge High School</li>
     </ul>
+    <div id="band-info-card" class="band-info-card" style="display:none;">
+      <button id="close-band-card" aria-label="Close" class="close-band-card">&times;</button>
+      <h3 id="band-card-title"></h3>
+      <p id="band-card-desc"></p>
+    </div>
   </section>
 
   <footer>
@@ -67,6 +72,82 @@
 </body>
 <script src="hide-concessions-link.js"></script>
 <script>
+// Band info data (placeholder)
+const bandInfo = {
+  'batavia': {
+    name: 'Batavia High School',
+    desc: 'Located in Batavia, Ohio. Director: Jane Smith. Fun fact: Their show features a full brass section solo!'
+  },
+  'jonathan-alder': {
+    name: 'Jonathan Alder High School',
+    desc: 'From Plain City, Ohio. Director: John Doe. Known for their creative percussion features.'
+  },
+  'little-miami': {
+    name: 'Little Miami High School',
+    desc: 'Based in Morrow, Ohio. Director: Emily Johnson. Their color guard is award-winning!'
+  },
+  'northeastern': {
+    name: 'Northeastern High School',
+    desc: 'Springfield, Ohio. Director: Mike Brown. Famous for their energetic field entrances.'
+  },
+  'olentangy-orange': {
+    name: 'Olentangy Orange High School',
+    desc: 'Lewis Center, Ohio. Director: Sarah Lee. Their marching formations are always a crowd favorite.'
+  },
+  'shawnee': {
+    name: 'Shawnee High School',
+    desc: 'Springfield, Ohio. Director: Tom White. Their drumline is a local legend.'
+  },
+  'southeastern': {
+    name: 'Southeastern High School',
+    desc: 'South Charleston, Ohio. Director: Lisa Green. Known for their themed uniforms.'
+  },
+  'tri-county-north': {
+    name: 'Tri-County North High School',
+    desc: 'Lewisburg, Ohio. Director: Mark Black. Their halftime shows are always innovative.'
+  },
+  'xenia': {
+    name: 'Xenia High School',
+    desc: 'Xenia, Ohio. Director: Rachel Blue. Their woodwind section is top-notch.'
+  },
+  'kenton-ridge': {
+    name: 'Kenton Ridge High School',
+    desc: 'Host band from Springfield, Ohio. Director: Alex Gold. Celebrating 25 years of the Cougar Band Show!'
+  }
+};
+
+// Show band info card on click
+document.querySelectorAll('.band-list li').forEach(li => {
+  li.tabIndex = 0;
+  li.setAttribute('role', 'button');
+  li.setAttribute('aria-pressed', 'false');
+  li.addEventListener('click', function() {
+    const bandKey = li.getAttribute('data-band');
+    const info = bandInfo[bandKey];
+    if (info) {
+      document.getElementById('band-card-title').textContent = info.name;
+      document.getElementById('band-card-desc').textContent = info.desc;
+      document.getElementById('band-info-card').style.display = 'block';
+      setTimeout(() => document.getElementById('band-info-card').focus(), 10);
+    }
+  });
+  li.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      li.click();
+    }
+  });
+});
+// Close card
+document.getElementById('close-band-card').addEventListener('click', function() {
+  document.getElementById('band-info-card').style.display = 'none';
+});
+// Optional: close card when clicking outside
+document.addEventListener('click', function(e) {
+  const card = document.getElementById('band-info-card');
+  if (card.style.display === 'block' && !card.contains(e.target) && !e.target.matches('.band-list li')) {
+    card.style.display = 'none';
+  }
+});
 // Hamburger menu toggle for mobile nav
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.getElementById('nav-links');
