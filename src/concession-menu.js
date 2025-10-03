@@ -1,5 +1,5 @@
 // concession-menu.js
-// Load and render concession menu from CSV as an accordion
+// Load and render concession menu from CSV as a card grid
 Papa.parse('concession-menu.csv', {
   header: true,
   download: true,
@@ -13,38 +13,20 @@ Papa.parse('concession-menu.csv', {
     });
     const menuSection = document.getElementById('concession-menu');
     if (!menuSection) return;
-    let html = '<div class="concession-accordion">';
+    let html = '';
     Object.keys(categories).forEach(cat => {
-      html += `<div class="concession-category">
-        <button class="concession-toggle">${cat}</button>
-        <div class="concession-items" style="display:none;">`;
+      html += `<div class="concession-category-title">${cat}</div><div class="concession-menu-board">`;
       categories[cat].forEach(item => {
-        html += `<div class="concession-item">
-          <div class="concession-item-header">
-            <span class="concession-item-name">${item.item}</span>
-            <span class="concession-item-price">${item.price}</span>
-          </div>`;
+        html += `<div class="concession-card">
+          <span class="concession-item-name">${item.item}</span>
+          <span class="concession-item-price">${item.price}</span>`;
         if (item.description) {
           html += `<div class="concession-item-desc">${item.description}</div>`;
         }
         html += '</div>';
       });
-      html += '</div></div>';
+      html += '</div>';
     });
-    html += '</div>';
     menuSection.innerHTML = '<h2>Concession Stand Menu</h2>' + html + '<p class="concession-note">All proceeds benefit the Kenton Ridge Band program. Thank you for your support!</p>';
-    // Accordion behavior
-    document.querySelectorAll('.concession-toggle').forEach(btn => {
-      btn.addEventListener('click', function() {
-        const items = this.nextElementSibling;
-        const isOpen = items.style.display === 'block';
-        document.querySelectorAll('.concession-items').forEach(i => i.style.display = 'none');
-        document.querySelectorAll('.concession-toggle').forEach(b => b.classList.remove('expanded'));
-        if (!isOpen) {
-          items.style.display = 'block';
-          this.classList.add('expanded');
-        }
-      });
-    });
   }
 });
