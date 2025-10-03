@@ -146,6 +146,8 @@ Papa.parse('./bands-data.csv', {
     console.error('PapaParse error:', err);
     showBandError('Band data could not be loaded.');
   }
+});
+
 // Show a visible error message in the card
 function showBandError(msg) {
   document.getElementById('band-card-title').textContent = 'Error';
@@ -155,7 +157,6 @@ function showBandError(msg) {
   document.getElementById('band-card-bio').textContent = msg;
   document.getElementById('band-info-card').style.display = 'block';
 }
-});
 // Close card
 document.getElementById('close-band-card').addEventListener('click', function() {
   document.getElementById('band-info-card').style.display = 'none';
