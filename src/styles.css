@@ -1,3 +1,24 @@
+.close-band-card {
+  position: absolute;
+  top: 0.7em;
+  right: 1.1em;
+  background: none;
+  border: none;
+  font-size: 2.2em;
+  font-weight: bold;
+  color: #b8860b;
+  cursor: pointer;
+  line-height: 1;
+  z-index: 1001;
+  padding: 0 0.2em;
+  transition: color 0.15s, background 0.15s;
+}
+.close-band-card:hover, .close-band-card:focus {
+  color: #fffbe6;
+  background: #b8860b;
+  border-radius: 50%;
+  outline: 2px solid #b8860b;
+}
 /* Sticky footer for all pages */
 html, body {
   height: 100%;
