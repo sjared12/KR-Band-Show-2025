@@ -78,19 +78,33 @@
 <script src="hide-concessions-link.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 <script>
+// Show a visible error message in the card
+function showBandError(msg) {
+  document.getElementById('band-card-title').textContent = 'Error';
+  document.getElementById('band-card-location').textContent = '';
+  document.getElementById('band-card-director').textContent = '';
+  document.getElementById('band-card-leadership').textContent = '';
+  document.getElementById('band-card-bio').textContent = msg;
+  document.getElementById('band-info-card').style.display = 'block';
+}
 // Load band info from CSV using PapaParse
 let bandInfoArr = [];
 let bandInfoMap = {};
-Papa.parse('bands-data.csv', {
+Papa.parse('./bands-data.csv', {
   header: true,
   download: true,
   complete: function(results) {
+    if (!results.data || !Array.isArray(results.data) || results.data.length === 0) {
+      console.error('Band CSV failed to load or is empty:', results);
+      showBandError('Band data could not be loaded.');
+      return;
+    }
     bandInfoArr = results.data;
     // Map by normalized name for fast lookup, trimming whitespace
     bandInfoArr.forEach(band => {
       if (!band.name) return;
       // Normalize: lowercase, trim, replace non-alphanum with dash, collapse dashes
-      const key = band.name.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      const key = (band.name||'').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
       bandInfoMap[key] = {
         ...band,
         name: (band.name||'').trim(),
@@ -117,6 +131,7 @@ Papa.parse('bands-data.csv', {
           document.getElementById('band-info-card').style.display = 'block';
           setTimeout(() => document.getElementById('band-info-card').focus(), 10);
         } else {
+          showBandError('No info found for this band.');
           console.warn('No band info found for key:', bandKey);
         }
       });
@@ -126,7 +141,20 @@ Papa.parse('bands-data.csv', {
         }
       });
     });
+  },
+  error: function(err) {
+    console.error('PapaParse error:', err);
+    showBandError('Band data could not be loaded.');
   }
+// Show a visible error message in the card
+function showBandError(msg) {
+  document.getElementById('band-card-title').textContent = 'Error';
+  document.getElementById('band-card-location').textContent = '';
+  document.getElementById('band-card-director').textContent = '';
+  document.getElementById('band-card-leadership').textContent = '';
+  document.getElementById('band-card-bio').textContent = msg;
+  document.getElementById('band-info-card').style.display = 'block';
+}
 });
 // Close card
 document.getElementById('close-band-card').addEventListener('click', function() {
