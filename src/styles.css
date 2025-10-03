@@ -16,9 +16,9 @@
 .band-info-card {
   display: none;
   position: fixed;
-  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  top: 80px;
+  transform: translateX(-50%);
   background: #fffbe6;
   border: 2px solid #b8860b;
   border-radius: 18px;
@@ -31,14 +31,15 @@
   text-align: left;
   font-size: 1.08em;
   line-height: 1.6;
-  max-height: 80vh;
+  max-height: calc(100vh - 100px);
   overflow-y: auto;
   word-break: break-word;
 }
 @media (max-width: 700px) {
   .band-info-card {
     max-width: 98vw;
-    max-height: 90vh;
+    top: 60px;
+    max-height: calc(100vh - 70px);
     padding: 1.2em 0.7em 1em 0.7em;
   }
 }
