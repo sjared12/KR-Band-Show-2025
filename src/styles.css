@@ -1,3 +1,70 @@
+/* Concession menu accordion styles */
+.concession-accordion {
+  margin: 2em 0 1em 0;
+}
+.concession-category {
+  margin-bottom: 1.2em;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+.concession-toggle {
+  width: 100%;
+  background: #fffbe6;
+  border: 2px solid #b8860b;
+  border-radius: 8px;
+  padding: 1em 1.5em;
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #b8860b;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.concession-toggle:hover, .concession-toggle:focus {
+  background: #b8860b;
+  color: #fffbe6;
+  outline: none;
+}
+.concession-toggle::after {
+  content: '+';
+  font-size: 1.5em;
+  transition: transform 0.2s;
+}
+.concession-toggle.expanded::after {
+  transform: rotate(45deg);
+}
+.concession-items {
+  display: none;
+  background: #fffbe6;
+  border: 2px solid #b8860b;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  padding: 1.2em 1.5em;
+  font-size: 1em;
+  line-height: 1.6;
+}
+.concession-item {
+  margin-bottom: 1em;
+}
+.concession-item:last-child {
+  margin-bottom: 0;
+}
+.concession-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.08em;
+}
+.concession-item-desc {
+  margin-top: 0.3em;
+  color: #5c3826;
+  font-size: 0.98em;
+}
 /* Sticky footer for all pages */
 html, body {
   height: 100%;
