@@ -31,7 +31,8 @@
   text-align: left;
   font-size: 1.08em;
   line-height: 1.6;
-  max-height: calc(100vh - 100px);
+  /* Ensure card never overlaps nav or footer: 70px for nav, 60px for footer */
+  max-height: calc(100vh - 70px - 60px);
   overflow-y: auto;
   word-break: break-word;
 }
@@ -39,7 +40,8 @@
   .band-info-card {
     max-width: 98vw;
     top: 60px;
-    max-height: calc(100vh - 70px);
+    /* 60px for nav, 60px for footer */
+    max-height: calc(100vh - 60px - 60px);
     padding: 1.2em 0.7em 1em 0.7em;
   }
 }
