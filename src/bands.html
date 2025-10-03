@@ -120,7 +120,9 @@ Papa.parse('./bands-data.csv', {
       li.setAttribute('role', 'button');
       li.setAttribute('aria-pressed', 'false');
       li.addEventListener('click', function() {
-        const bandKey = li.getAttribute('data-band');
+        // Use the displayed text as the lookup key, normalized
+        const bandText = li.textContent.trim();
+        const bandKey = bandText.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
         const info = bandInfoMap[bandKey];
         if (info) {
           document.getElementById('band-card-title').textContent = info.name;
