@@ -23,11 +23,17 @@
   border: 2px solid #b8860b;
   border-radius: 18px;
   box-shadow: 0 6px 32px rgba(184,134,11,0.13);
-  padding: 2em 1.5em 1.5em 1.5em;
+  padding: 2.5em 2.5em 2em 2.5em;
   z-index: 9999;
-  min-width: 260px;
-  max-width: 90vw;
-  text-align: center;
+  min-width: 320px;
+  max-width: 540px;
+  width: 90vw;
+  text-align: left;
+  font-size: 1.08em;
+  line-height: 1.6;
+}
+.band-card-section {
+  margin-bottom: 1.1em;
 }
 .band-info-card h3 {
   margin-top: 0;

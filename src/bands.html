@@ -62,7 +62,12 @@
     <div id="band-info-card" class="band-info-card" style="display:none;">
       <button id="close-band-card" aria-label="Close" class="close-band-card">&times;</button>
       <h3 id="band-card-title"></h3>
-      <p id="band-card-desc"></p>
+      <div class="band-card-section"><strong>Location:</strong> <span id="band-card-location"></span></div>
+      <div class="band-card-section"><strong>Director(s):</strong> <span id="band-card-director"></span></div>
+      <div class="band-card-section"><strong>Student Leadership:</strong> <span id="band-card-leadership"></span></div>
+      <div class="band-card-section"><strong>Bio:</strong>
+        <div id="band-card-bio"></div>
+      </div>
     </div>
   </section>
 
@@ -71,71 +76,47 @@
   </footer>
 </body>
 <script src="hide-concessions-link.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 <script>
-// Band info data (placeholder)
-const bandInfo = {
-  'batavia': {
-    name: 'Batavia High School',
-    desc: 'Located in Batavia, Ohio. Director: Jane Smith. Fun fact: Their show features a full brass section solo!'
-  },
-  'jonathan-alder': {
-    name: 'Jonathan Alder High School',
-    desc: 'From Plain City, Ohio. Director: John Doe. Known for their creative percussion features.'
-  },
-  'little-miami': {
-    name: 'Little Miami High School',
-    desc: 'Based in Morrow, Ohio. Director: Emily Johnson. Their color guard is award-winning!'
-  },
-  'northeastern': {
-    name: 'Northeastern High School',
-    desc: 'Springfield, Ohio. Director: Mike Brown. Famous for their energetic field entrances.'
-  },
-  'olentangy-orange': {
-    name: 'Olentangy Orange High School',
-    desc: 'Lewis Center, Ohio. Director: Sarah Lee. Their marching formations are always a crowd favorite.'
-  },
-  'shawnee': {
-    name: 'Shawnee High School',
-    desc: 'Springfield, Ohio. Director: Tom White. Their drumline is a local legend.'
-  },
-  'southeastern': {
-    name: 'Southeastern High School',
-    desc: 'South Charleston, Ohio. Director: Lisa Green. Known for their themed uniforms.'
-  },
-  'tri-county-north': {
-    name: 'Tri-County North High School',
-    desc: 'Lewisburg, Ohio. Director: Mark Black. Their halftime shows are always innovative.'
-  },
-  'xenia': {
-    name: 'Xenia High School',
-    desc: 'Xenia, Ohio. Director: Rachel Blue. Their woodwind section is top-notch.'
-  },
-  'kenton-ridge': {
-    name: 'Kenton Ridge High School',
-    desc: 'Host band from Springfield, Ohio. Director: Alex Gold. Celebrating 25 years of the Cougar Band Show!'
+// Load band info from CSV using PapaParse
+let bandInfoArr = [];
+let bandInfoMap = {};
+Papa.parse('bands-data.csv', {
+  header: true,
+  download: true,
+  complete: function(results) {
+    bandInfoArr = results.data;
+    // Map by normalized name for fast lookup
+    bandInfoArr.forEach(band => {
+      // Normalize name to match data-band attribute
+      const key = band.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      bandInfoMap[key] = band;
+    });
+    // Enable interactivity after data loads
+    document.querySelectorAll('.band-list li').forEach(li => {
+      li.tabIndex = 0;
+      li.setAttribute('role', 'button');
+      li.setAttribute('aria-pressed', 'false');
+      li.addEventListener('click', function() {
+        const bandKey = li.getAttribute('data-band');
+        const info = bandInfoMap[bandKey];
+        if (info) {
+          document.getElementById('band-card-title').textContent = info.name;
+          document.getElementById('band-card-location').textContent = info.location;
+          document.getElementById('band-card-director').textContent = info.director;
+          document.getElementById('band-card-leadership').textContent = info.leadership;
+          document.getElementById('band-card-bio').textContent = info.bio;
+          document.getElementById('band-info-card').style.display = 'block';
+          setTimeout(() => document.getElementById('band-info-card').focus(), 10);
+        }
+      });
+      li.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          li.click();
+        }
+      });
+    });
   }
-};
-
-// Show band info card on click
-document.querySelectorAll('.band-list li').forEach(li => {
-  li.tabIndex = 0;
-  li.setAttribute('role', 'button');
-  li.setAttribute('aria-pressed', 'false');
-  li.addEventListener('click', function() {
-    const bandKey = li.getAttribute('data-band');
-    const info = bandInfo[bandKey];
-    if (info) {
-      document.getElementById('band-card-title').textContent = info.name;
-      document.getElementById('band-card-desc').textContent = info.desc;
-      document.getElementById('band-info-card').style.display = 'block';
-      setTimeout(() => document.getElementById('band-info-card').focus(), 10);
-    }
-  });
-  li.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') {
-      li.click();
-    }
-  });
 });
 // Close card
 document.getElementById('close-band-card').addEventListener('click', function() {
