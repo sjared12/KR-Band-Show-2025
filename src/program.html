@@ -45,15 +45,18 @@
       <a href="event-program.pdf" download class="button program-download-btn">
         <span style="font-size:1.2em;vertical-align:middle;">⬇️</span> Download PDF
       </a>
-      <iframe 
-        src="pdfjs-viewer.html" 
-        title="Event Program PDF"
-        aria-label="Event Program PDF"
-        style="background:#fff;"
-      >
-        This browser does not support PDFs. Please download the PDF to view it: 
-        <a href="event-program.pdf">Download PDF</a>
-      </iframe>
+      <div class="pdf-wrapper" aria-hidden="false">
+        <iframe 
+          src="pdfjs-viewer.html" 
+          title="Event Program PDF"
+          aria-label="Event Program PDF"
+          loading="lazy"
+          frameborder="0"
+        ></iframe>
+      </div>
+      <noscript>
+        <p class="pdf-fallback">This browser does not support embedded PDFs or JavaScript is disabled. Please <a href="event-program.pdf">download the PDF</a> to view it.</p>
+      </noscript>
     </div>
   </section>
 

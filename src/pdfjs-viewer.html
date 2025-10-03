@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PDF Viewer</title>
   <style>
     html, body { height: 100%; margin: 0; padding: 0; background: transparent; }
@@ -11,14 +12,28 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f8f8f8;
     }
-    #pdf-canvas {
-      width: 100%;
-      height: 100vh;
+    #pdf-scroll-container {
+      max-width: 900px;
+      width: 95vw;
+      margin: 40px 0 0 0;
+      overflow-y: auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      padding: 0 0 30px 0;
+    }
+    .pdf-page-canvas, #pdf-canvas {
+      width: 100% !important;
+      height: auto !important;
       display: block;
       background: #fff;
       border-radius: 10px;
       box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      margin: 20px auto;
+      max-width: 100%;
     }
     #pdf-error {
       position: absolute;
@@ -30,12 +45,31 @@
       border: 2px solid #a00;
       border-radius: 10px;
       padding: 2em 2.5em;
-      font-size: 1.3em;
-      font-family: 'Segoe UI', Arial, sans-serif;
+      font-size: 1.1em;
+      font-family: inherit;
       box-shadow: 0 2px 12px rgba(0,0,0,0.13);
       z-index: 10;
       text-align: center;
       display: none;
+    }
+    @media (max-width: 600px) {
+      #pdf-scroll-container {
+        max-width: 100vw;
+        width: 99vw;
+        margin: 10px 0 0 0;
+        border-radius: 6px;
+        box-shadow: none;
+        padding: 0 0 10px 0;
+      }
+      .pdf-page-canvas, #pdf-canvas {
+        border-radius: 6px;
+        margin: 10px auto;
+        box-shadow: none;
+      }
+      #pdf-error {
+        font-size: 1em;
+        padding: 1em 0.5em;
+      }
     }
   </style>
 </head>
@@ -61,6 +95,7 @@
         const ctx = canvas.getContext('2d');
         page.render({canvasContext: ctx, viewport: viewport});
         // Replace placeholder with canvas
+        canvas.className = 'pdf-page-canvas';
         const placeholder = document.getElementById('pdf-page-placeholder-' + num);
         if (placeholder) {
           placeholder.innerHTML = '';
