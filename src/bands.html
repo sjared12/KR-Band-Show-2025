@@ -86,11 +86,19 @@ Papa.parse('bands-data.csv', {
   download: true,
   complete: function(results) {
     bandInfoArr = results.data;
-    // Map by normalized name for fast lookup
+    // Map by normalized name for fast lookup, trimming whitespace
     bandInfoArr.forEach(band => {
-      // Normalize name to match data-band attribute
-      const key = band.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-      bandInfoMap[key] = band;
+      if (!band.name) return;
+      // Normalize: lowercase, trim, replace non-alphanum with dash, collapse dashes
+      const key = band.name.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      bandInfoMap[key] = {
+        ...band,
+        name: (band.name||'').trim(),
+        location: (band.location||'').trim(),
+        director: (band.director||'').trim(),
+        leadership: (band.leadership||'').trim(),
+        bio: (band.bio||'').trim()
+      };
     });
     // Enable interactivity after data loads
     document.querySelectorAll('.band-list li').forEach(li => {
@@ -108,6 +116,8 @@ Papa.parse('bands-data.csv', {
           document.getElementById('band-card-bio').textContent = info.bio;
           document.getElementById('band-info-card').style.display = 'block';
           setTimeout(() => document.getElementById('band-info-card').focus(), 10);
+        } else {
+          console.warn('No band info found for key:', bandKey);
         }
       });
       li.addEventListener('keydown', function(e) {
