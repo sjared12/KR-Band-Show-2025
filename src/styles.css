@@ -1,3 +1,23 @@
+/* WiFi Banner Styles */
+.wifi-banner {
+  width: 100vw;
+  background: linear-gradient(90deg, #FFD700 0%, #FFB300 100%);
+  color: #4B2E1D;
+  font-weight: 700;
+  font-size: 1.13em;
+  text-align: center;
+  padding: 0.7em 0.5em 0.7em 0.5em;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  z-index: 1000;
+  position: relative;
+}
+@media (max-width: 700px) {
+  .wifi-banner {
+    font-size: 1em;
+    padding: 0.6em 0.2em;
+  }
+}
 /* Modern concession menu card grid */
 .concession-menu-board {
   display: grid;
