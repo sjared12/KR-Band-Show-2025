@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Concession Stand Menu | Kenton Ridge Marching Band Show</title>
+  <title>Parking Map | Kenton Ridge Marching Band Show</title>
   <link rel="stylesheet" href="styles.css" />
-  <meta property="og:title" content="Concession Stand Menu | Kenton Ridge Marching Band Show">
-  <meta property="og:description" content="See what's available at the Kenton Ridge Marching Band Invitational Concession Stand.">
+  <meta property="og:title" content="Parking Map | Kenton Ridge Marching Band Show">
+  <meta property="og:description" content="View parking locations and restrictions for the Kenton Ridge Marching Band Show.">
   <meta property="og:type" content="website">
 </head>
 <body>
@@ -18,12 +18,11 @@
   <header>
     <div class="header-flex">
       <div class="header-title-group">
-        <h1>Kenton Ridge Marching Band Show</h1>
-        <p>🎉 Celebrating 25 Years of Excellence 🎉</p>
+        <h1>Parking Information</h1>
+        <p>See where you can and cannot park for the event</p>
       </div>
     </div>
   </header>
-
   <nav class="main-nav">
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links">
       <span class="nav-toggle-bar"></span>
@@ -31,28 +30,31 @@
       <span class="nav-toggle-bar"></span>
     </button>
     <div class="nav-links" id="nav-links">
-  <a href="/">Home</a>
-  <a href="/about">About</a>
-  <a href="/schedule">Schedule</a>
-  <a href="/bands">Bands</a>
-  <a href="/tickets">Tickets</a>
-  <a href="/program">Digital Program</a>
-  <a href="/concessions" aria-current="page">Concessions</a>
-  <a href="/parking">Parking</a>
-  <a href="/contact">Contact</a>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/schedule">Schedule</a>
+      <a href="/bands">Bands</a>
+      <a href="/tickets">Tickets</a>
+      <a href="/program">Digital Program</a>
+      <a href="/concessions">Concessions</a>
+      <a href="/parking" aria-current="page">Parking</a>
+      <a href="/contact">Contact</a>
     </div>
   </nav>
-
-  <section id="concession-menu">
-    <!-- Menu will be loaded from CSV and rendered here by JS -->
-    <p class="concession-note">All proceeds benefit the Kenton Ridge Band program. Thank you for your support!</p>
+  <section>
+    <h2>Parking Map</h2>
+    <p>Please review the map below to see designated parking areas and restricted zones for the event. Follow all posted signs and staff directions for a smooth arrival.</p>
+    <div style="text-align:center; margin: 2em 0;">
+      <iframe src="/Band%20Show%20Map%2025.pdf" width="100%" height="600px" style="border:1.5px solid #bbb; border-radius:10px; box-shadow:0 2px 12px rgba(0,0,0,0.07); background:#fff;"></iframe>
+      <div style="margin-top:1em;">
+        <a href="/Band%20Show%20Map%2025.pdf" download class="program-download-btn">Download Parking Map (PDF)</a>
+      </div>
+    </div>
   </section>
-
   <footer>
     &copy; 2025 Kenton Ridge High School Marching Band
   </footer>
-  <script src="Modules/papaparse.min.js"></script>
-  <script src="concession-menu.js"></script>
+  <script src="hide-concessions-link.js"></script>
   <script>
   // Hamburger menu toggle for mobile nav
   const navToggle = document.querySelector('.nav-toggle');
