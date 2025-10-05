@@ -66,17 +66,18 @@
   <script src="countdown.js"></script>
   <script src="hide-concessions-link.js"></script>
   <script>
-  // Show WiFi modal (date logic temporarily disabled for testing)
+  // Show WiFi modal only after 4:30pm EST, Oct 25, 2025
   (function() {
-    // var now = new Date();
-    // var showTime = new Date(Date.UTC(2025, 9, 25, 20, 30, 0));
-    // if (now >= showTime) {
-    var modal = document.getElementById('wifiModal');
-    if (modal) {
-      modal.classList.add('active');
-      setTimeout(function() { modal.focus(); }, 100);
+    var now = new Date();
+    // EST is UTC-4 in October (EDT), so 4:30pm EST = 20:30 UTC
+    var showTime = new Date(Date.UTC(2025, 9, 25, 20, 30, 0));
+    if (now >= showTime) {
+      var modal = document.getElementById('wifiModal');
+      if (modal) {
+        modal.classList.add('active');
+        setTimeout(function() { modal.focus(); }, 100);
+      }
     }
-    // }
     var closeBtn = document.getElementById('wifiModalClose');
     if (closeBtn) {
       closeBtn.addEventListener('click', function() {
