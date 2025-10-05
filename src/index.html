@@ -10,8 +10,13 @@
   <meta property="og:type" content="website">
 </head>
 <body>
-  <div class="wifi-banner" role="status" aria-live="polite">
-    Free Event WiFi: <strong>KR-Guest</strong> &mdash; Password: <strong>marching25</strong>
+  <div class="wifi-modal" id="wifiModal" role="dialog" aria-modal="true" aria-labelledby="wifiModalTitle" tabindex="-1">
+    <div class="wifi-modal-content">
+      <button class="wifi-modal-close" id="wifiModalClose" aria-label="Close WiFi Info">&times;</button>
+      <div id="wifiModalTitle" style="font-size:1.2em;margin-bottom:0.5em;">Free Event WiFi</div>
+      <div><strong>KRHSMB Band Show 2025 Guest</strong></div>
+      <div style="margin-top:0.5em;"><span>No password required</span></div>
+    </div>
   </div>
     <video autoplay muted loop playsinline id="bg-video" tabindex="-1" aria-hidden="true">
     <source src="Untitled.mp4" type="video/mp4">
@@ -61,6 +66,32 @@
   <script src="countdown.js"></script>
   <script src="hide-concessions-link.js"></script>
   <script>
+  // Show WiFi modal (date logic temporarily disabled for testing)
+  (function() {
+    // var now = new Date();
+    // var showTime = new Date(Date.UTC(2025, 9, 25, 20, 30, 0));
+    // if (now >= showTime) {
+    var modal = document.getElementById('wifiModal');
+    if (modal) {
+      modal.classList.add('active');
+      setTimeout(function() { modal.focus(); }, 100);
+    }
+    // }
+    var closeBtn = document.getElementById('wifiModalClose');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function() {
+        var modal = document.getElementById('wifiModal');
+        if (modal) modal.classList.remove('active');
+      });
+    }
+    // Dismiss modal on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        var modal = document.getElementById('wifiModal');
+        if (modal) modal.classList.remove('active');
+      }
+    });
+  })();
   // Hamburger menu toggle for mobile nav
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.getElementById('nav-links');

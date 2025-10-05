@@ -10,6 +10,9 @@
   <meta property="og:type" content="website">
 </head>
 <body>
+  <div class="wifi-banner" id="wifiBanner" role="status" aria-live="polite">
+    Free Event WiFi: <strong>KRHSMB Band Show 2025 Guest</strong> &mdash; <span style="font-weight:400;">No password required</span>
+  </div>
   <video autoplay muted loop playsinline id="bg-video" tabindex="-1" aria-hidden="true">
     <source src="Untitled.mp4" type="video/mp4">
     Your browser does not support the video tag.
@@ -145,6 +148,16 @@
 <script src="hide-concessions-link.js"></script>
 <script src="Modules/papaparse.min.js"></script>
 <script>
+// Show WiFi banner only after 4:30pm EST, Oct 25, 2025
+(function() {
+  var now = new Date();
+  // EST is UTC-4 in October (EDT), so 4:30pm EST = 20:30 UTC
+  var showTime = new Date(Date.UTC(2025, 9, 25, 20, 30, 0));
+  if (now >= showTime) {
+    var banner = document.getElementById('wifiBanner');
+    if (banner) banner.style.display = 'block';
+  }
+})();
 // Show a visible error message in the card
 function showBandError(msg) {
   // For now, perhaps alert or console, since no modal
@@ -209,16 +222,5 @@ Papa.parse('./bands-data.csv', {
     // Handle error, perhaps show in details
   }
 });
-
-// Hamburger menu toggle for mobile nav
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.getElementById('nav-links');
-if (navToggle && navLinks) {
-  navToggle.addEventListener('click', function() {
-    const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-    navToggle.setAttribute('aria-expanded', !expanded);
-    navLinks.classList.toggle('open');
-  });
-}
 </script>
 </html>

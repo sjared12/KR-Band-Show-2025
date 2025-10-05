@@ -1,3 +1,59 @@
+.wifi-banner { display: none; }
+
+/* WiFi Modal Styles */
+.wifi-modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(30, 20, 10, 0.65);
+  align-items: center;
+  justify-content: center;
+}
+.wifi-modal.active {
+  display: flex;
+}
+.wifi-modal-content {
+  background: linear-gradient(90deg, #FFD700 0%, #FFB300 100%);
+  color: #4B2E1D;
+  font-weight: 700;
+  font-size: 1.13em;
+  text-align: center;
+  padding: 2em 1.5em 1.5em 1.5em;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  max-width: 90vw;
+  min-width: 260px;
+  position: relative;
+}
+.wifi-modal-close {
+  position: absolute;
+  top: 0.7em;
+  right: 1em;
+  background: none;
+  border: none;
+  font-size: 1.7em;
+  color: #4B2E1D;
+  cursor: pointer;
+  font-weight: bold;
+  line-height: 1;
+}
+.wifi-modal-content strong {
+  font-size: 1.15em;
+}
+.wifi-modal-content span {
+  font-weight: 400;
+}
+@media (max-width: 700px) {
+  .wifi-modal-content {
+    font-size: 1em;
+    padding: 1.2em 0.5em 1em 0.5em;
+    min-width: 0;
+  }
+}
 /* WiFi Banner Styles */
 .wifi-banner {
   width: 100vw;
