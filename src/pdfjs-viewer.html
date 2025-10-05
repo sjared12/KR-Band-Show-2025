@@ -139,7 +139,14 @@
         return;
       }
       const pdfjsLib = window.pdfjsLib;
-      const url = 'event-program.pdf';
+      // Get PDF file from ?file= query param, default to event-program.pdf
+      let url = 'event-program.pdf';
+      try {
+        const params = new URLSearchParams(window.location.search);
+        if (params.has('file')) {
+          url = decodeURIComponent(params.get('file'));
+        }
+      } catch (e) {}
       pdfjsLib.GlobalWorkerOptions.workerSrc = 'Modules/pdf.work.min.js';
       pdfjsLib.getDocument(url).promise.then(function(pdfDoc) {
         renderAllPagesLazy(pdfDoc);
