@@ -178,17 +178,26 @@ Papa.parse('./bands-data.csv', {
     }
     bandInfoArr = results.data;
     // Map by normalized name for fast lookup, trimming whitespace
+    function normalizeQuotes(str) {
+      if (!str) return '';
+      return str
+        .replace(/[“”]/g, '"')
+        .replace(/[‘’]/g, "'")
+        .replace(/�/g, '') // Remove replacement char
+        .replace(/\u201C|\u201D/g, '"')
+        .replace(/\u2018|\u2019/g, "'");
+    }
     bandInfoArr.forEach(band => {
       if (!band.name) return;
       // Normalize: lowercase, trim, replace non-alphanum with dash, collapse dashes
-      const key = (band.name||'').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      const key = normalizeQuotes((band.name||'').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, ''));
       bandInfoMap[key] = {
         ...band,
-        name: (band.name||'').trim(),
-        location: (band.location||'').trim(),
-        director: (band.director||'').trim(),
-        leadership: (band.leadership||'').trim(),
-        bio: (band.bio||'').trim()
+        name: normalizeQuotes((band.name||'').trim()),
+        location: normalizeQuotes((band.location||'').trim()),
+        director: normalizeQuotes((band.director||'').trim()),
+        leadership: normalizeQuotes((band.leadership||'').trim()),
+        bio: normalizeQuotes((band.bio||'').trim())
       };
     });
     // Populate the details for each item
