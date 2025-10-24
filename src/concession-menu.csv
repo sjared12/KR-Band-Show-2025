@@ -1,9 +1,26 @@
-category,item,description,price
-Snacks,Popcorn,Freshly popped popcorn,$2
-Snacks,Pretzel,Soft baked pretzel with salt,$3
-Drinks,Bottled Water,Ice cold bottled water,$1
-Drinks,Soda,Assorted Coca-Cola products,$2
-Meals,Hot Dog,All-beef hot dog on a bun,$3
-Meals,Pizza Slice,Cheese or pepperoni,$3
-Candy,Skittles,Assorted flavors,$1
-Candy,Snickers,Chocolate bar,$1
+category,item, price 
+Candy,Swedish Fish, $2.00 
+Candy,Air Head, $2.00 
+Candy,Sour Patch Kids, $2.00 
+Candy,Nerd Clusters, $2.00 
+Candy,Hershey Bar, $2.00 
+Candy,Hershey Bar with Almonds, $2.00 
+Candy,Kit Kat, $2.00 
+Candy,Reese's, $2.00 
+Candy,Slim Jim, $2.00 
+Snacks,Carmel Corn, $2.50 
+Snacks,Chips, $1.00 
+Candy,Cow Tails, $1.00 
+Snacks,Jumbo Bag Popcorn, $6.00 
+Snacks,Popcorn, $1.50 
+Snacks,Soft Pretzel, $3.50 
+Snacks,Pickles, $1.50 
+Snacks,Nachos, $3.50 
+Food,Hot Dog, $3.00 
+Food,Pizza, $3.00 
+Food,Lee's Chicken, $6.00 
+Drinks,Coffee,1.50
+Drinks,Gatorade,3.00
+Drinks,Hot Chocolate,1.50
+Drinks,Pop,1.75
+Drinks,Water,1.75
