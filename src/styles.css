@@ -77,65 +77,78 @@
 /* Modern concession menu card grid */
 .concession-menu-board {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2em 1.5em;
-  margin: 2.5em 0 1.5em 0;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.1em 1em;
+  margin: 1.5em 0 1.2em 0;
 }
 .concession-category-title {
   grid-column: 1 / -1;
-  font-size: 1.4em;
-  font-weight: 700;
-  color: #b8860b;
-  margin: 2em 0 0.5em 0;
+  font-size: 1.2em;
+  font-weight: 800;
+  color: #FFD700;
+  margin: 1.4em 0 0.3em 0;
   letter-spacing: 0.01em;
   text-align: left;
+  text-transform: uppercase;
+}
+.concession-category-title::after {
+  content: '';
+  display: block;
+  width: 64px;
+  height: 3px;
+  background: linear-gradient(90deg, #FFD700, #FFB300);
+  border-radius: 3px;
+  margin-top: 6px;
 }
 .concession-card {
-  background: #fffbe6;
-  border: 2px solid #b8860b;
-  border-radius: 14px;
-  box-shadow: 0 4px 18px rgba(184,134,11,0.07);
-  padding: 1.3em 1.2em 1.1em 1.2em;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  transition: box-shadow 0.18s, border-color 0.18s;
-  min-height: 140px;
+  background: linear-gradient(135deg, #fffbe6 70%, #ffe9a7 100%);
+  border: 1.5px solid #FFD70066;
+  border-radius: 12px;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.08);
+  padding: 0.85em 0.9em 0.75em 0.9em;
+  display: block;
+  transition: box-shadow 0.18s, border-color 0.18s, transform 0.12s;
+  min-height: 88px;
   position: relative;
 }
 .concession-card:hover, .concession-card:focus {
-  box-shadow: 0 8px 32px rgba(184,134,11,0.13);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
   border-color: #FFD700;
+  transform: translateY(-2px);
 }
 .concession-item-name {
-  font-size: 1.15em;
-  font-weight: 600;
+  font-size: 1.05em;
+  font-weight: 700;
   color: #4B2E1D;
-  margin-bottom: 0.2em;
 }
 .concession-item-price {
-  font-size: 1.08em;
-  font-weight: 700;
-  color: #b8860b;
-  margin-left: 0.7em;
+  float: right;
+  font-size: 0.95em;
+  font-weight: 800;
+  color: #3a1f13;
+  background: linear-gradient(90deg, #FFD700, #FFB300);
+  padding: 0.15em 0.55em;
+  border-radius: 999px;
+  border: 1px solid #4B2E1D11;
 }
 .concession-item-desc {
-  font-size: 0.98em;
+  clear: both;
+  font-size: 0.92em;
   color: #5c3826;
-  margin-top: 0.4em;
+  margin-top: 0.35em;
 }
 @media (max-width: 700px) {
   .concession-menu-board {
-    grid-template-columns: 1fr;
-    gap: 1.2em;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8em;
   }
   .concession-category-title {
-    font-size: 1.15em;
-    margin: 1.2em 0 0.3em 0;
+    font-size: 1.02em;
+    margin: 1em 0 0.2em 0;
   }
   .concession-card {
-    padding: 1em 0.7em 0.8em 0.7em;
-    min-height: 100px;
+    padding: 0.7em 0.65em 0.6em 0.65em;
+    min-height: 72px;
   }
 }
 /* Concession menu accordion styles */
@@ -621,7 +634,7 @@ footer {
   margin: 2em auto 1.5em auto;
   padding: 0;
 }
-.concession-card {
+.concessions-grid .concession-card {
   background: linear-gradient(120deg, #fffbe7 70%, #ffe9a7 100%);
   border-radius: 14px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.10);
@@ -635,17 +648,17 @@ footer {
   transition: transform 0.13s, box-shadow 0.13s;
   border: 1.5px solid #FFD70033;
 }
-.concession-card:hover {
+.concessions-grid .concession-card:hover {
   transform: translateY(-4px) scale(1.03);
   box-shadow: 0 6px 24px rgba(0,0,0,0.13);
   background: linear-gradient(120deg, #ffe9a7 60%, #fffbe7 100%);
 }
-.concession-emoji {
+.concessions-grid .concession-emoji {
   font-size: 2.1em;
   margin-right: 0.2em;
   flex-shrink: 0;
 }
-.concession-price {
+.concessions-grid .concession-price {
   color: #8d6a00;
   font-weight: 700;
   font-size: 1.08em;
