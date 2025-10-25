@@ -47,9 +47,15 @@
   </nav>
 
   <section class="program-section">
-    <div class="program-card program-card-center temp-message">
-      <h2>🎼 Digital Program Coming Soon</h2>
-      <p class="program-desc">The official event program will be available here soon. Please check back closer to the event date!</p>
+    <div class="program-card program-card-center">
+      <h2>🎼 Event Program</h2>
+      <p class="program-desc">View the full program below. You can scroll, pinch-zoom (mobile), or download a PDF copy.</p>
+      <div class="pdf-wrapper">
+        <iframe src="pdfjs-viewer.html?file=event-program.pdf" title="Event Program PDF" loading="lazy"></iframe>
+      </div>
+      <p class="program-desc" style="margin-top:0.8em;">
+        Having trouble viewing? <a href="event-program.pdf" download>Download the PDF</a>.
+      </p>
     </div>
   </section>
 
@@ -59,11 +65,11 @@
 </body>
 <script src="hide-concessions-link.js"></script>
 <script>
-// Show WiFi banner only after 4:30pm EST, Oct 25, 2025
+// Show WiFi banner only after 4:00pm EST, Oct 25, 2025
 (function() {
   var now = new Date();
-  // EST is UTC-4 in October (EDT), so 4:30pm EST = 20:30 UTC
-  var showTime = new Date(Date.UTC(2025, 9, 25, 20, 30, 0));
+  // EST is UTC-4 in October (EDT), so 4:00pm EST = 20:00 UTC
+  var showTime = new Date(Date.UTC(2025, 9, 25, 20, 0, 0));
   if (now >= showTime) {
     var banner = document.getElementById('wifiBanner');
     if (banner) banner.style.display = 'block';

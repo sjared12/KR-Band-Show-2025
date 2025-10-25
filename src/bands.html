@@ -149,11 +149,11 @@
 <script src="hide-concessions-link.js"></script>
 <script src="Modules/papaparse.min.js"></script>
 <script>
-// Show WiFi banner only after 4:30pm EST, Oct 25, 2025
+// Show WiFi banner only after 4:00pm EST, Oct 25, 2025
 (function() {
   var now = new Date();
-  // EST is UTC-4 in October (EDT), so 4:30pm EST = 20:30 UTC
-  var showTime = new Date(Date.UTC(2025, 9, 25, 20, 30, 0));
+  // EST is UTC-4 in October (EDT), so 4:00pm EST = 20:00 UTC
+  var showTime = new Date(Date.UTC(2025, 9, 25, 20, 0, 0));
   if (now >= showTime) {
     var banner = document.getElementById('wifiBanner');
     if (banner) banner.style.display = 'block';
