@@ -117,7 +117,6 @@
         <div class="band-details" style="display:none;">
           <div class="band-section"><strong>Location:</strong> <span class="band-location"></span></div>
           <div class="band-section"><strong>Director(s):</strong> <span class="band-director"></span></div>
-          <div class="band-section"><strong>Student Leadership:</strong> <span class="band-leadership"></span></div>
           <div class="band-section"><strong>Bio:</strong> <div class="band-bio"></div></div>
         </div>
       </li>
@@ -227,16 +226,20 @@ Papa.parse('./bands-data.csv', {
         bio: normalizeQuotes((band.bio||'').trim())
       };
     });
-    // Populate the details for each item
+    // Populate the details for each item (safe element checks)
     document.querySelectorAll('.band-item').forEach(item => {
       const bandText = item.querySelector('.band-toggle').textContent.trim();
       const bandKey = bandText.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
       const info = bandInfoMap[bandKey];
       if (info) {
-        item.querySelector('.band-location').textContent = info.location;
-        item.querySelector('.band-director').textContent = info.director;
-        item.querySelector('.band-leadership').textContent = info.leadership;
-        item.querySelector('.band-bio').textContent = info.bio;
+        const locEl = item.querySelector('.band-location');
+        if (locEl) locEl.textContent = info.location;
+        const dirEl = item.querySelector('.band-director');
+        if (dirEl) dirEl.textContent = info.director;
+        const leadEl = item.querySelector('.band-leadership');
+        if (leadEl) leadEl.textContent = info.leadership;
+        const bioEl = item.querySelector('.band-bio');
+        if (bioEl) bioEl.textContent = info.bio;
       }
     });
     // Interactivity handled above via event delegation
