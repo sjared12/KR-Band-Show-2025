@@ -172,6 +172,25 @@ function showBandError(msg) {
   // For now, perhaps alert or console, since no modal
   console.error('Band error:', msg);
 }
+
+// Attach accordion behavior using event delegation so it always works
+(function attachBandAccordion() {
+  const listEl = document.querySelector('.band-list');
+  if (!listEl) return;
+  listEl.addEventListener('click', function (e) {
+    const btn = e.target.closest('.band-toggle');
+    if (!btn || !listEl.contains(btn)) return;
+    const details = btn.nextElementSibling;
+    if (!details) return;
+    const isExpanded = details.style.display === 'block';
+    document.querySelectorAll('.band-details').forEach(d => d.style.display = 'none');
+    document.querySelectorAll('.band-toggle').forEach(t => t.classList.remove('expanded'));
+    if (!isExpanded) {
+      details.style.display = 'block';
+      btn.classList.add('expanded');
+    }
+  });
+})();
 // Load band info from CSV using PapaParse
 let bandInfoArr = [];
 let bandInfoMap = {};
@@ -220,20 +239,7 @@ Papa.parse('./bands-data.csv', {
         item.querySelector('.band-bio').textContent = info.bio;
       }
     });
-    // Enable interactivity
-    document.querySelectorAll('.band-toggle').forEach(toggle => {
-      toggle.addEventListener('click', function() {
-        const details = this.nextElementSibling;
-        const isExpanded = details.style.display === 'block';
-        // Close all others
-        document.querySelectorAll('.band-details').forEach(d => d.style.display = 'none');
-        document.querySelectorAll('.band-toggle').forEach(t => t.classList.remove('expanded'));
-        if (!isExpanded) {
-          details.style.display = 'block';
-          this.classList.add('expanded');
-        }
-      });
-    });
+    // Interactivity handled above via event delegation
   },
   error: function(err) {
     console.error('PapaParse error:', err);
